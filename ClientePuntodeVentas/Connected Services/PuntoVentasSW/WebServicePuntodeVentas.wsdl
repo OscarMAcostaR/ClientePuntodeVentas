@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://tempuri.org/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="Get_Detalle">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="parametros" type="tns:ArrayOfAnyType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfAnyType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="anyType" nillable="true" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DetalleVenta_VO">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id_detalle" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_venta" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_producto" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Cantidad" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Subtotal" type="s:double" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfDetalleVenta_VO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DetalleVenta_VO" nillable="true" type="tns:DetalleVenta_VO" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Get_DetalleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get_DetalleResult" type="tns:ArrayOfDetalleVenta_VO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_Empleados">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="parametros" type="tns:ArrayOfAnyType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Empleados_VO">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id_empleado" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="nombre" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="puesto" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="telefono" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfEmpleados_VO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Empleados_VO" nillable="true" type="tns:Empleados_VO" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Get_EmpleadosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get_EmpleadosResult" type="tns:ArrayOfEmpleados_VO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_Clientes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="parametros" type="tns:ArrayOfAnyType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Clientes_VO">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id_cliente" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nombre" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Direccion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Telefono" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfClientes_VO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Clientes_VO" nillable="true" type="tns:Clientes_VO" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Get_ClientesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get_ClientesResult" type="tns:ArrayOfClientes_VO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_Ventas">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="parametros" type="tns:ArrayOfAnyType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Ventas_VO">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id_venta" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_cliente" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_empleado" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Fecha_venta" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Total" type="s:double" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfVentas_VO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Ventas_VO" nillable="true" type="tns:Ventas_VO" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Get_VentasResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get_VentasResult" type="tns:ArrayOfVentas_VO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Eliminar_Empleados">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Eliminar_EmpleadosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Eliminar_EmpleadosResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insert_Producto">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="producto" type="tns:Productos_VO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Productos_VO">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id_producto" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nombre" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Precio" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="Stock" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_proveedor" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="insert_ProductoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="insert_ProductoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="Get_DetalleSoapIn">
+    <wsdl:part name="parameters" element="tns:Get_Detalle" />
+  </wsdl:message>
+  <wsdl:message name="Get_DetalleSoapOut">
+    <wsdl:part name="parameters" element="tns:Get_DetalleResponse" />
+  </wsdl:message>
+  <wsdl:message name="Get_EmpleadosSoapIn">
+    <wsdl:part name="parameters" element="tns:Get_Empleados" />
+  </wsdl:message>
+  <wsdl:message name="Get_EmpleadosSoapOut">
+    <wsdl:part name="parameters" element="tns:Get_EmpleadosResponse" />
+  </wsdl:message>
+  <wsdl:message name="Get_ClientesSoapIn">
+    <wsdl:part name="parameters" element="tns:Get_Clientes" />
+  </wsdl:message>
+  <wsdl:message name="Get_ClientesSoapOut">
+    <wsdl:part name="parameters" element="tns:Get_ClientesResponse" />
+  </wsdl:message>
+  <wsdl:message name="Get_VentasSoapIn">
+    <wsdl:part name="parameters" element="tns:Get_Ventas" />
+  </wsdl:message>
+  <wsdl:message name="Get_VentasSoapOut">
+    <wsdl:part name="parameters" element="tns:Get_VentasResponse" />
+  </wsdl:message>
+  <wsdl:message name="Eliminar_EmpleadosSoapIn">
+    <wsdl:part name="parameters" element="tns:Eliminar_Empleados" />
+  </wsdl:message>
+  <wsdl:message name="Eliminar_EmpleadosSoapOut">
+    <wsdl:part name="parameters" element="tns:Eliminar_EmpleadosResponse" />
+  </wsdl:message>
+  <wsdl:message name="insert_ProductoSoapIn">
+    <wsdl:part name="parameters" element="tns:insert_Producto" />
+  </wsdl:message>
+  <wsdl:message name="insert_ProductoSoapOut">
+    <wsdl:part name="parameters" element="tns:insert_ProductoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WebServicePuntodeVentasSoap">
+    <wsdl:operation name="Get_Detalle">
+      <wsdl:input message="tns:Get_DetalleSoapIn" />
+      <wsdl:output message="tns:Get_DetalleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_Empleados">
+      <wsdl:input message="tns:Get_EmpleadosSoapIn" />
+      <wsdl:output message="tns:Get_EmpleadosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_Clientes">
+      <wsdl:input message="tns:Get_ClientesSoapIn" />
+      <wsdl:output message="tns:Get_ClientesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_Ventas">
+      <wsdl:input message="tns:Get_VentasSoapIn" />
+      <wsdl:output message="tns:Get_VentasSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Eliminar_Empleados">
+      <wsdl:input message="tns:Eliminar_EmpleadosSoapIn" />
+      <wsdl:output message="tns:Eliminar_EmpleadosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="insert_Producto">
+      <wsdl:input message="tns:insert_ProductoSoapIn" />
+      <wsdl:output message="tns:insert_ProductoSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WebServicePuntodeVentasSoap" type="tns:WebServicePuntodeVentasSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Get_Detalle">
+      <soap:operation soapAction="http://tempuri.org/Get_Detalle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Empleados">
+      <soap:operation soapAction="http://tempuri.org/Get_Empleados" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Clientes">
+      <soap:operation soapAction="http://tempuri.org/Get_Clientes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Ventas">
+      <soap:operation soapAction="http://tempuri.org/Get_Ventas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Eliminar_Empleados">
+      <soap:operation soapAction="http://tempuri.org/Eliminar_Empleados" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insert_Producto">
+      <soap:operation soapAction="http://tempuri.org/insert_Producto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WebServicePuntodeVentasSoap12" type="tns:WebServicePuntodeVentasSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Get_Detalle">
+      <soap12:operation soapAction="http://tempuri.org/Get_Detalle" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Empleados">
+      <soap12:operation soapAction="http://tempuri.org/Get_Empleados" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Clientes">
+      <soap12:operation soapAction="http://tempuri.org/Get_Clientes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Ventas">
+      <soap12:operation soapAction="http://tempuri.org/Get_Ventas" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Eliminar_Empleados">
+      <soap12:operation soapAction="http://tempuri.org/Eliminar_Empleados" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insert_Producto">
+      <soap12:operation soapAction="http://tempuri.org/insert_Producto" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WebServicePuntodeVentas">
+    <wsdl:port name="WebServicePuntodeVentasSoap" binding="tns:WebServicePuntodeVentasSoap">
+      <soap:address location="http://localhost:58899/SW_PuntodeVentas/WebServicePuntodeVentas.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WebServicePuntodeVentasSoap12" binding="tns:WebServicePuntodeVentasSoap12">
+      <soap12:address location="http://localhost:58899/SW_PuntodeVentas/WebServicePuntodeVentas.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
